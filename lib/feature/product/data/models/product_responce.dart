@@ -2,7 +2,7 @@
 //
 //     final productResponce = productResponceFromJson(jsonString);
 
-import 'package:productCleanArchitecture/config/paginationInfo.dart';
+import 'package:productCleanArchitecture/core/models/paginationInfo.dart';
 import 'package:productCleanArchitecture/feature/product/data/models/productModels.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'dart:convert';
