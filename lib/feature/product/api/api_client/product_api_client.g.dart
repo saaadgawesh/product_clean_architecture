@@ -20,31 +20,25 @@ class _ProductApiClient implements ProductApiClient {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<List<ProductResponce>> getProducts(int page, int limit) async {
+  Future<ProductResponce> getProducts(int page, int limit) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'page': page, r'limit': limit};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<List<ProductResponce>>(
+    final _options = _setStreamType<ProductResponce>(
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            ' https://ecommerce.routemisr.com/api/v1/products',
+            '/products',
             queryParameters: queryParameters,
             data: _data,
           )
           .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
-    final _result = await _dio.fetch<List<dynamic>>(_options);
-    late List<ProductResponce> _value;
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late ProductResponce _value;
     try {
-      _value =
-          _result.data!
-              .map(
-                (dynamic i) =>
-                    ProductResponce.fromJson(i as Map<String, dynamic>),
-              )
-              .toList();
+      _value = ProductResponce.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options, response: _result);
       rethrow;

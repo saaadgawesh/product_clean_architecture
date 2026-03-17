@@ -12,9 +12,8 @@ abstract class ProductApiClient {
   factory ProductApiClient(Dio dio) = _ProductApiClient;
 
   @GET(AppEndpoint.products)
-  Future<List<ProductResponce>> getProducts(
+  Future<ProductResponce> getProducts(
     @Query("page") int page,
     @Query("limit") int limit,
-    
   );
 }

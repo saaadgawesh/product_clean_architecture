@@ -6,8 +6,9 @@ extension ProductMappers on productModels {
     return ProductEntities(
       id: id,
       name: title,
-      description: description??"",
+      description: description ?? "",
       price: price,
+      imageUrl: imageCover ?? "",
     );
   }
 }

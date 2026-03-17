@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:productCleanArchitecture/core/network/endpoint/app_endpoint.dart';
+import 'package:productCleanArchitecture/feature/product/api/api_client/product_api_client.dart';
 
 @module
 abstract class DioModule {
@@ -12,4 +13,7 @@ abstract class DioModule {
       baseUrl: AppEndpoint.baseUrl,
     ),
   );
+
+  @lazySingleton
+  ProductApiClient productApiClient(Dio dio) => ProductApiClient(dio);
 }

@@ -19,15 +19,12 @@ class ProductRepoImpl implements ProductRepoContract {
   ) async {
     final response = await _dataSourceContract.getProducts(page, limit);
     switch (response) {
-      case SuccessBaseResponse<List<ProductResponce>>(data: final data):
+      case SuccessBaseResponse<ProductResponce>(data: final data):
         return SuccessBaseResponse<List<ProductEntities>>(
-          data:
-              data
-                  .expand((e) => e.data.map((item) => item.toEntity()))
-                  .toList(),
+          data: data.data.map((item) => item.toEntity()).toList(),
         );
 
-      case ErrorBaseResponse<List<ProductResponce>>(exception: final exception):
+      case ErrorBaseResponse<ProductResponce>(exception: final exception):
         return ErrorBaseResponse<List<ProductEntities>>(exception: exception);
     }
   }

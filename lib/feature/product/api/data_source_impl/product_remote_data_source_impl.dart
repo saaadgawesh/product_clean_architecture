@@ -11,15 +11,15 @@ class ProductRemoteDataSourceImpl implements ProductRemoteDataSourceContract {
   ProductRemoteDataSourceImpl(this._apiClient);
 
   @override
-  Future<BaseResponse<List<ProductResponce>>> getProducts(
+  Future<BaseResponse<ProductResponce>> getProducts(
     int page,
     int limit,
   ) async {
-    final response = await _apiClient.getProducts(page, limit);
     try {
-      return SuccessBaseResponse<List<ProductResponce>>(data: response);
+      final response = await _apiClient.getProducts(page, limit);
+      return SuccessBaseResponse<ProductResponce>(data: response);
     } on Exception catch (e) {
-      return ErrorBaseResponse<List<ProductResponce>>(
+      return ErrorBaseResponse<ProductResponce>(
         exception: Exception(ErrorHandler.handle(e)),
       );
     }
