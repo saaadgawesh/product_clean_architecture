@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:productCleanArchitecture/core/network/base_state/base_state.dart';
 import 'package:productCleanArchitecture/feature/product/domain/entities/product_entities.dart';
 import 'package:productCleanArchitecture/feature/product/presentation/cubit/product_cubit.dart';
+import 'package:productCleanArchitecture/feature/product/presentation/widgets/product_card.dart';
 
 class Homescreen extends StatelessWidget {
   const Homescreen({super.key});
@@ -32,7 +33,7 @@ class Homescreen extends StatelessWidget {
                     const SizedBox(height: 12),
                     ElevatedButton(
                       onPressed: () {
-                        context.read<ProductCubit>().getProduct(1, 10);
+                        context.read<ProductCubit>().getProduct(1, 50);
                       },
                       child: const Text('Try Again'),
                     ),
@@ -54,95 +55,11 @@ class Homescreen extends StatelessWidget {
             separatorBuilder: (_, __) => const SizedBox(height: 12),
             itemBuilder: (context, index) {
               final product = products[index];
-              return _ProductCard(product: product);
+              return ProductCard(product: product);
             },
           );
         },
       ),
-    );
-  }
-}
-
-class _ProductCard extends StatelessWidget {
-  final ProductEntities product;
-
-  const _ProductCard({required this.product});
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      elevation: 3,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-      child: Padding(
-        padding: const EdgeInsets.all(12),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(12),
-              child:
-                  product.imageUrl.isNotEmpty
-                      ? Image.network(
-                        product.imageUrl,
-                        width: 100,
-                        height: 100,
-                        fit: BoxFit.cover,
-                        errorBuilder: (_, __, ___) {
-                          return _ProductImagePlaceholder();
-                        },
-                      )
-                      : _ProductImagePlaceholder(),
-            ),
-            const SizedBox(width: 12),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    product.name,
-                    style: const TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  const SizedBox(height: 8),
-                  Text(
-                    product.description.isEmpty
-                        ? 'No description available'
-                        : product.description,
-                    maxLines: 3,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(color: Colors.grey.shade700),
-                  ),
-                  const SizedBox(height: 12),
-                  Text(
-                    '\$${product.price}',
-                    style: const TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.green,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class _ProductImagePlaceholder extends StatelessWidget {
-  const _ProductImagePlaceholder();
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 100,
-      height: 100,
-      color: Colors.grey.shade200,
-      child: const Icon(Icons.image_not_supported_outlined, color: Colors.grey),
     );
   }
 }
