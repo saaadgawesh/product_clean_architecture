@@ -1,4 +1,7 @@
 {
     "cmake.sourceDirectory": "C:/Users/96654/Desktop/myProjects/productCleanArchitecture/windows/runner",
-    "java.configuration.updateBuildConfiguration": "interactive"
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "java.project.sourcePaths": [
+        "test"
+    ]
 }
