@@ -3,7 +3,6 @@ import 'package:product_clean_architecture/core/network/base_response/base_respo
 import 'package:product_clean_architecture/feature/product/data/datasources/product_remote_data_source_contract.dart';
 import 'package:product_clean_architecture/feature/product/data/mappers/Product_mappers.dart';
 import 'package:product_clean_architecture/feature/product/data/models/productModels.dart';
-import 'package:product_clean_architecture/feature/product/data/models/product_responce.dart';
 import 'package:product_clean_architecture/feature/product/domain/entities/product_entities.dart';
 import 'package:product_clean_architecture/feature/product/domain/repositories/product_repo_contract.dart';
 
