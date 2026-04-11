@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:productCleanArchitecture/core/values/app_strings.dart';
+import 'package:product_clean_architecture/core/values/app_strings.dart';
 
 class ErrorHandler {
   static String handle(Exception exception) {

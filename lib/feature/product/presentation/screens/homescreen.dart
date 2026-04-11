@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:productCleanArchitecture/core/network/base_state/base_state.dart';
-import 'package:productCleanArchitecture/feature/product/domain/entities/product_entities.dart';
-import 'package:productCleanArchitecture/feature/product/presentation/cubit/product_cubit.dart';
-import 'package:productCleanArchitecture/feature/product/presentation/widgets/product_card.dart';
+import 'package:product_clean_architecture/core/network/base_state/base_state.dart';
+import 'package:product_clean_architecture/feature/product/domain/entities/product_entities.dart';
+import 'package:product_clean_architecture/feature/product/presentation/cubit/product_cubit.dart';
+import 'package:product_clean_architecture/feature/product/presentation/widgets/product_card.dart';
 
 class Homescreen extends StatelessWidget {
   const Homescreen({super.key});

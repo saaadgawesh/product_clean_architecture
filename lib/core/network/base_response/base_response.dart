@@ -1,6 +1,6 @@
 
 
-import 'package:productCleanArchitecture/core/error/base_error.dart';
+import 'package:product_clean_architecture/core/error/base_error.dart';
 
 sealed class BaseResponse<T> {}
 

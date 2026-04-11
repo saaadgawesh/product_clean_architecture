@@ -1,9 +1,8 @@
 import 'package:injectable/injectable.dart';
-import 'package:productCleanArchitecture/core/error/handler_exception.dart';
-import 'package:productCleanArchitecture/core/network/base_response/base_response.dart';
-import 'package:productCleanArchitecture/feature/product/api/api_client/product_api_client.dart';
-import 'package:productCleanArchitecture/feature/product/data/datasources/product_remote_data_source_contract.dart';
-import 'package:productCleanArchitecture/feature/product/data/models/product_responce.dart';
+import 'package:product_clean_architecture/core/network/base_response/base_response.dart';
+import 'package:product_clean_architecture/feature/product/api/api_client/product_api_client.dart';
+import 'package:product_clean_architecture/feature/product/data/datasources/product_remote_data_source_contract.dart';
+import 'package:product_clean_architecture/feature/product/data/models/productModels.dart';
 
 @Injectable(as: ProductRemoteDataSourceContract)
 class ProductRemoteDataSourceImpl implements ProductRemoteDataSourceContract {
@@ -11,16 +10,16 @@ class ProductRemoteDataSourceImpl implements ProductRemoteDataSourceContract {
   ProductRemoteDataSourceImpl(this._apiClient);
 
   @override
-  Future<BaseResponse<ProductResponce>> getProducts(
-    int page,
-    int limit,
+  Future<BaseResponse<List<productModels>>> getProducts(
+   { int? page,
+    int ?limit,}
   ) async {
     try {
-      final response = await _apiClient.getProducts(page, limit);
-      return SuccessBaseResponse<ProductResponce>(data: response);
+      final response = await _apiClient.getProducts(page: page, limit: limit);
+      return SuccessBaseResponse<List<productModels>>(data: response.data);
     } on Exception catch (e) {
-      return ErrorBaseResponse<ProductResponce>(
-        exception: Exception(ErrorHandler.handle(e)),
+      return ErrorBaseResponse<List<productModels>>(
+        exception: e,
       );
     }
   }

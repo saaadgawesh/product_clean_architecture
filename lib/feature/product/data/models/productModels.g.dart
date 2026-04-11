@@ -6,44 +6,40 @@ part of 'productModels.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-productModels _$productModelsFromJson(
-  Map<String, dynamic> json,
-) => productModels(
-  id: json['_id'] as String,
-  title: json['title'] as String,
-  price: (json['price'] as num).toInt(),
-  sold: (json['sold'] as num?)?.toDouble(),
-  images: (json['images'] as List<dynamic>?)?.map((e) => e as String).toList(),
-  subcategory:
-      (json['subcategory'] as List<dynamic>?)
+productModels _$productModelsFromJson(Map<String, dynamic> json) =>
+    productModels(
+      id: json['_id'] as String,
+      title: json['title'] as String,
+      price: (json['price'] as num).toInt(),
+      sold: (json['sold'] as num?)?.toDouble(),
+      images: (json['images'] as List<dynamic>?)
+          ?.map((e) => e as String)
+          .toList(),
+      subcategory: (json['subcategory'] as List<dynamic>?)
           ?.map((e) => Subcategory.fromJson(e as Map<String, dynamic>))
           .toList(),
-  ratingsQuantity: (json['ratingsQuantity'] as num?)?.toInt(),
-  slug: json['slug'] as String?,
-  description: json['description'] as String?,
-  quantity: (json['quantity'] as num?)?.toInt(),
-  imageCover: json['imageCover'] as String?,
-  category:
-      json['category'] == null
+      ratingsQuantity: (json['ratingsQuantity'] as num?)?.toInt(),
+      slug: json['slug'] as String?,
+      description: json['description'] as String?,
+      quantity: (json['quantity'] as num?)?.toInt(),
+      imageCover: json['imageCover'] as String?,
+      category: json['category'] == null
           ? null
           : CategoryModels.fromJson(json['category'] as Map<String, dynamic>),
-  brand:
-      json['brand'] == null
+      brand: json['brand'] == null
           ? null
           : Brand.fromJson(json['brand'] as Map<String, dynamic>),
-  ratingsAverage: (json['ratingsAverage'] as num?)?.toDouble(),
-  createdAt:
-      json['createdAt'] == null
+      ratingsAverage: (json['ratingsAverage'] as num?)?.toDouble(),
+      createdAt: json['createdAt'] == null
           ? null
           : DateTime.parse(json['createdAt'] as String),
-  updatedAt:
-      json['updatedAt'] == null
+      updatedAt: json['updatedAt'] == null
           ? null
           : DateTime.parse(json['updatedAt'] as String),
-  datumId: json['id'] as String?,
-  priceAfterDiscount: (json['priceAfterDiscount'] as num?)?.toInt(),
-  availableColors: json['availableColors'] as List<dynamic>?,
-);
+      datumId: json['id'] as String?,
+      priceAfterDiscount: (json['priceAfterDiscount'] as num?)?.toInt(),
+      availableColors: json['availableColors'] as List<dynamic>?,
+    );
 
 Map<String, dynamic> _$productModelsToJson(productModels instance) =>
     <String, dynamic>{

@@ -1,6 +1,7 @@
-import 'package:productCleanArchitecture/core/network/base_response/base_response.dart';
-import 'package:productCleanArchitecture/feature/product/data/models/product_responce.dart';
+import 'package:product_clean_architecture/core/network/base_response/base_response.dart';
+import 'package:product_clean_architecture/feature/product/data/models/productModels.dart';
+import 'package:product_clean_architecture/feature/product/data/models/product_responce.dart';
 
 abstract class ProductRemoteDataSourceContract {
-  Future<BaseResponse<ProductResponce>> getProducts(int page, int limit);
+  Future<BaseResponse<List<productModels>>> getProducts({required int ?page,required int?limit});
 }

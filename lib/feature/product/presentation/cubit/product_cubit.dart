@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:injectable/injectable.dart';
-import 'package:productCleanArchitecture/core/network/base_state/base_state.dart';
-import 'package:productCleanArchitecture/feature/product/domain/entities/product_entities.dart';
-import 'package:productCleanArchitecture/feature/product/domain/usecases/get_product_usecase.dart';
+import 'package:product_clean_architecture/core/network/base_state/base_state.dart';
+import 'package:product_clean_architecture/feature/product/domain/entities/product_entities.dart';
+import 'package:product_clean_architecture/feature/product/domain/usecases/get_product_usecase.dart';
 
 @injectable
 class ProductCubit extends Cubit<BaseState<List<ProductEntities>>> {

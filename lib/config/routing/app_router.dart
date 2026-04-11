@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:productCleanArchitecture/config/routing/routes.dart';
+import 'package:product_clean_architecture/config/routing/routes.dart';
 
-import 'package:productCleanArchitecture/feature/product/presentation/screens/homescreen.dart';
+import 'package:product_clean_architecture/feature/product/presentation/screens/homescreen.dart';
 
 Route? generateRoute(RouteSettings setting) {
   switch (setting.name) {

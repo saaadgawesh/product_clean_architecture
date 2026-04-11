@@ -1,5 +1,5 @@
-import 'package:productCleanArchitecture/feature/product/data/models/productModels.dart';
-import 'package:productCleanArchitecture/feature/product/domain/entities/product_entities.dart';
+import 'package:product_clean_architecture/feature/product/data/models/productModels.dart';
+import 'package:product_clean_architecture/feature/product/domain/entities/product_entities.dart';
 
 extension ProductMappers on productModels {
   ProductEntities toEntity() {

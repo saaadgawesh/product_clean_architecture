@@ -1,6 +1,6 @@
-import 'package:productCleanArchitecture/core/models/Brand.dart';
-import 'package:productCleanArchitecture/core/models/CategoryModels.dart';
-import 'package:productCleanArchitecture/core/models/Subcategory.dart';
+import 'package:product_clean_architecture/core/models/Brand.dart';
+import 'package:product_clean_architecture/core/models/CategoryModels.dart';
+import 'package:product_clean_architecture/core/models/Subcategory.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'productModels.g.dart';

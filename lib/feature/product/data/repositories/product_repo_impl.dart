@@ -1,10 +1,11 @@
 import 'package:injectable/injectable.dart';
-import 'package:productCleanArchitecture/core/network/base_response/base_response.dart';
-import 'package:productCleanArchitecture/feature/product/data/datasources/product_remote_data_source_contract.dart';
-import 'package:productCleanArchitecture/feature/product/data/mappers/Product_mappers.dart';
-import 'package:productCleanArchitecture/feature/product/data/models/product_responce.dart';
-import 'package:productCleanArchitecture/feature/product/domain/entities/product_entities.dart';
-import 'package:productCleanArchitecture/feature/product/domain/repositories/product_repo_contract.dart';
+import 'package:product_clean_architecture/core/network/base_response/base_response.dart';
+import 'package:product_clean_architecture/feature/product/data/datasources/product_remote_data_source_contract.dart';
+import 'package:product_clean_architecture/feature/product/data/mappers/Product_mappers.dart';
+import 'package:product_clean_architecture/feature/product/data/models/productModels.dart';
+import 'package:product_clean_architecture/feature/product/data/models/product_responce.dart';
+import 'package:product_clean_architecture/feature/product/domain/entities/product_entities.dart';
+import 'package:product_clean_architecture/feature/product/domain/repositories/product_repo_contract.dart';
 
 @Injectable(as: ProductRepoContract)
 class ProductRepoImpl implements ProductRepoContract {
@@ -14,17 +15,17 @@ class ProductRepoImpl implements ProductRepoContract {
 
   @override
   Future<BaseResponse<List<ProductEntities>>> getProducts(
-    int page,
-    int limit,
+  {  int? page,
+    int? limit,}
   ) async {
-    final response = await _dataSourceContract.getProducts(page, limit);
+    final response = await _dataSourceContract.getProducts(page: page, limit: limit);
     switch (response) {
-      case SuccessBaseResponse<ProductResponce>(data:final data):
+      case SuccessBaseResponse<List<productModels>>(data: final data):
         return SuccessBaseResponse<List<ProductEntities>>(
-          data: data.data.map((e) => e.toEntity()).toList(),
+          data: data.map((e) => e.toEntity()).toList(),
         );
 
-      case ErrorBaseResponse<ProductResponce>():
+      case ErrorBaseResponse<List<productModels>>():
         return ErrorBaseResponse<List<ProductEntities>>(
           exception: response.exception,
         );

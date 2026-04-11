@@ -1,4 +1,4 @@
-name: productCleanArchitecture
+name: product_clean_architecture
 description: "A new Flutter project."
 
 publish_to: "none"
@@ -6,19 +6,19 @@ publish_to: "none"
 version: 1.0.0+1
 
 environment:
-  sdk: ^3.7.0
+  sdk: ^3.8.0
 
 dependencies:
   flutter:
     sdk: flutter
 
-  injectable:
-
-  get_it:
+  injectable: ^2.5.1
+  get_it: ^8.0.3
 
   cupertino_icons: ^1.0.8
   equatable: ^2.0.8
-  bloc: ^9.2.0
+  bloc: ^9.0.0
+  dio: ^5.8.0+1
   json_annotation: ^4.11.0
   retrofit: ^4.9.0
   logger: ^2.6.0
@@ -27,15 +27,13 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
-  injectable_generator:
-
-  build_runner:
+  injectable_generator: ^2.7.0
+  build_runner: ^2.4.15
   retrofit_generator: ^10.0.1
-
   json_serializable: ^6.10.0
-
   flutter_lints: ^5.0.0
+  mockito: ^5.6.4
+
   test: ^1.29.0
 
 flutter:

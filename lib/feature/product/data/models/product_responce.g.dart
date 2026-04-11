@@ -8,14 +8,13 @@ part of 'product_responce.dart';
 
 ProductResponce _$ProductResponceFromJson(Map<String, dynamic> json) =>
     ProductResponce(
-      results: (json['results'] as num).toInt(),
-      metadata: paginationInfo.fromJson(
-        json['metadata'] as Map<String, dynamic>,
-      ),
-      data:
-          (json['data'] as List<dynamic>)
-              .map((e) => productModels.fromJson(e as Map<String, dynamic>))
-              .toList(),
+      results: (json['results'] as num?)?.toInt(),
+      metadata: json['metadata'] == null
+          ? null
+          : paginationInfo.fromJson(json['metadata'] as Map<String, dynamic>),
+      data: (json['data'] as List<dynamic>)
+          .map((e) => productModels.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$ProductResponceToJson(ProductResponce instance) =>

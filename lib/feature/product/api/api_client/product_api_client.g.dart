@@ -20,9 +20,10 @@ class _ProductApiClient implements ProductApiClient {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<ProductResponce> getProducts(int page, int limit) async {
+  Future<ProductResponce> getProducts({int? page, int? limit}) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'page': page, r'limit': limit};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _options = _setStreamType<ProductResponce>(

@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
-import 'package:productCleanArchitecture/core/network/endpoint/app_endpoint.dart';
-import 'package:productCleanArchitecture/feature/product/api/api_client/product_api_client.dart';
+import 'package:product_clean_architecture/core/network/endpoint/app_endpoint.dart';
+import 'package:product_clean_architecture/feature/product/api/api_client/product_api_client.dart';
 
 @module
 abstract class DioModule {

@@ -2,8 +2,8 @@
 //
 //     final productResponce = productResponceFromJson(jsonString);
 
-import 'package:productCleanArchitecture/core/models/paginationInfo.dart';
-import 'package:productCleanArchitecture/feature/product/data/models/productModels.dart';
+import 'package:product_clean_architecture/core/models/paginationInfo.dart';
+import 'package:product_clean_architecture/feature/product/data/models/productModels.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'dart:convert';
 
@@ -16,9 +16,9 @@ String productResponceToJson(ProductResponce data) => json.encode(data.toJson())
 @JsonSerializable()
 class ProductResponce {
     @JsonKey(name: "results")
-    int results;
+    int? results;
     @JsonKey(name: "metadata")
-    paginationInfo metadata;
+    paginationInfo? metadata;
     @JsonKey(name: "data")
     List<productModels> data;
 

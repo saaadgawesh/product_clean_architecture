@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:productCleanArchitecture/config/di/service_locator.dart';
-import 'package:productCleanArchitecture/feature/product/presentation/cubit/product_cubit.dart';
-import 'package:productCleanArchitecture/feature/product/presentation/screens/homescreen.dart';
+import 'package:product_clean_architecture/config/di/service_locator.dart';
+import 'package:product_clean_architecture/feature/product/presentation/cubit/product_cubit.dart';
+import 'package:product_clean_architecture/feature/product/presentation/screens/homescreen.dart';
 
 class myapp extends StatelessWidget {
   const myapp({super.key});

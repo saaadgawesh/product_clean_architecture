@@ -1,6 +1,6 @@
 import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
-import 'package:productCleanArchitecture/config/di/service_locator.config.dart';
+import 'package:product_clean_architecture/config/di/service_locator.config.dart';
 
 final servicelocator = GetIt.instance;
 

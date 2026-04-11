@@ -3,5 +3,8 @@
     "java.configuration.updateBuildConfiguration": "interactive",
     "java.project.sourcePaths": [
         "test"
-    ]
+    ],
+    "yaml.schemas": {
+        "https://www.schemastore.org/pubspec.json": "file:///d%3A/projects/product_clean_architecture/pubspec.yaml"
+    }
 }

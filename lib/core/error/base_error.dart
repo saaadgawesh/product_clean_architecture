@@ -1,5 +1,5 @@
 
-import 'package:productCleanArchitecture/core/error/handler_exception.dart';
+import 'package:product_clean_architecture/core/error/handler_exception.dart';
 
 class BaseError {
   static String handleException(Exception exception) {

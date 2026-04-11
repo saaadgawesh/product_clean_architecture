@@ -14,11 +14,11 @@ import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 
 import '../../core/network/dio_module/dio_module.dart' as _i23;
-import '../../feature/product/api/api_client/product_api_client.dart' as _i621;
+import '../../feature/product/api/api_client/product_api_client.dart' as _i694;
+import '../../feature/product/api/data_source_impl/product_remote_data_source_impl.dart'
+    as _i41;
 import '../../feature/product/data/datasources/product_remote_data_source_contract.dart'
     as _i385;
-import '../../feature/product/api/data_source_impl/product_remote_data_source_impl.dart'
-    as _i877;
 import '../../feature/product/data/repositories/product_repo_impl.dart'
     as _i478;
 import '../../feature/product/domain/repositories/product_repo_contract.dart'
@@ -36,11 +36,11 @@ extension GetItInjectableX on _i174.GetIt {
     final gh = _i526.GetItHelper(this, environment, environmentFilter);
     final dioModule = _$DioModule();
     gh.singleton<_i361.Dio>(() => dioModule.dio);
-    gh.lazySingleton<_i621.ProductApiClient>(
+    gh.lazySingleton<_i694.ProductApiClient>(
       () => dioModule.productApiClient(gh<_i361.Dio>()),
     );
     gh.factory<_i385.ProductRemoteDataSourceContract>(
-      () => _i877.ProductRemoteDataSourceImpl(gh<_i621.ProductApiClient>()),
+      () => _i41.ProductRemoteDataSourceImpl(gh<_i694.ProductApiClient>()),
     );
     gh.factory<_i846.ProductRepoContract>(
       () => _i478.ProductRepoImpl(gh<_i385.ProductRemoteDataSourceContract>()),
